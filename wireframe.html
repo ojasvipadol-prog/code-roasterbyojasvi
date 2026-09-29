@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Code Roaster (Desi Edition) · DevFest Nashik 2026 Wireframe</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800;900&family=JetBrains+Mono:ital,wght@0,400;0,600;0,700;1,400&family=Noto+Sans+Devanagari:wght@600;800;900&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            cream: '#F8F4EC',
+            lavender: '#EFF2FB',
+            paleYellow: '#F7E3A8',
+            dark: '#141414',
+            mustard: '#EDB13E',
+            gblue: '#4C80F0',
+            gred: '#D9503F',
+            ggreen: '#4FA35A',
+            editorDark: '#171717',
+            creamText: '#F7F3EA',
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+            devanagari: ['"Noto Sans Devanagari"', 'sans-serif'],
+          },
+          boxShadow: {
+            'brutal-sm': '2px 2px 0px #141414',
+            'brutal': '4px 4px 0px #141414',
+            'brutal-lg': '6px 6px 0px #141414',
+            'brutal-pressed': '1px 1px 0px #141414',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background-color: #F8F4EC;
+      color: #141414;
+      background-image: radial-gradient(#141414 0.75px, transparent 0.75px);
+      background-size: 24px 24px;
+    }
+    .custom-scroll::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    .custom-scroll::-webkit-scrollbar-track {
+      background: #1e1e1e;
+    }
+    .custom-scroll::-webkit-scrollbar-thumb {
+      background: #3e3e3e;
+      border-radius: 3px;
+    }
+  </style>
+</head>
+<body class="min-h-screen font-sans antialiased text-dark flex flex-col selection:bg-mustard selection:text-dark">
+
+  <!-- TOP FLOATING PILL NAVBAR -->
+  <header class="sticky top-4 z-50 px-4 max-w-7xl mx-auto w-full mb-4">
+    <div class="bg-cream border-[2.5px] border-dark rounded-full px-5 py-2.5 shadow-brutal flex items-center justify-between gap-4">
+      
+      <!-- Left: Official GDG Nashik Logo from Assets -->
+      <div class="flex items-center gap-3">
+        <div class="flex items-center bg-white px-3 py-1 rounded-full border-2 border-dark shadow-brutal-sm hover:translate-x-[1px] hover:translate-y-[1px] transition-transform select-none">
+          <img src="assests/GDG-Nashik_Logo.svg" alt="GDG Nashik Logo" class="h-7 w-auto object-contain" />
+        </div>
+      </div>
+
+      <!-- Center: CODE ROASTER v2 badge -->
+      <div class="flex items-center gap-2">
+        <div class="flex items-center gap-2 bg-mustard border-2 border-dark px-4 py-1.5 rounded-full shadow-brutal-sm font-black text-xs uppercase tracking-wider">
+          <span class="text-base animate-pulse">🔥</span>
+          <span>CODE ROASTER</span>
+          <span class="bg-dark text-cream text-[10px] px-2 py-0.5 rounded-full font-mono">v2.0-DESI</span>
+        </div>
+      </div>
+
+      <!-- Right: Official DevFest '26 Logo from Assets -->
+      <div class="flex items-center gap-2">
+        <div class="flex items-center bg-[#FFF8E7] border-2 border-dark px-3 py-1 rounded-full shadow-brutal-sm hover:translate-x-[1px] hover:translate-y-[1px] transition-transform select-none">
+          <img src="assests/DevFest-26'_Logo.svg" alt="DevFest 26' Nashik Logo" class="h-6 w-auto object-contain" />
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- SHORT HERO SECTION -->
+  <main class="max-w-7xl mx-auto px-4 w-full flex-1 flex flex-col gap-6 pb-12">
+    <section class="text-center pt-2 pb-1 relative">
+      <!-- Eyebrow Pill -->
+      <div class="inline-flex items-center gap-2 bg-white border-2 border-dark px-4 py-1 rounded-full shadow-brutal-sm font-mono text-xs font-bold uppercase tracking-wider mb-3">
+        <span class="w-2.5 h-2.5 rounded-full bg-gred animate-ping"></span>
+        <span class="font-devanagari font-extrabold text-dark">CODE BOL RAHA HAI · मला वाचवा!</span>
+        <span class="text-neutral-400 font-normal">|</span>
+        <span class="text-neutral-600 font-mono">AI-POWERED CODE ROAST</span>
+      </div>
+
+      <!-- Hero Headline -->
+      <h1 class="text-4xl md:text-5xl font-black tracking-tight uppercase flex items-center justify-center gap-3">
+        <span>Code Roaster</span>
+        <span class="text-mustard drop-shadow-[2px_2px_0px_#141414] font-mono italic">('देशी')</span>
+      </h1>
+
+      <!-- Subtitle -->
+      <p class="max-w-2xl mx-auto text-sm md:text-base font-semibold text-neutral-800 mt-2">
+        Paste your code. Pick your roast. Get humbled. Get the fix. <br class="hidden sm:inline"/>
+        <span class="bg-[#FFF4D4] border border-dark/20 px-2.5 py-0.5 rounded font-mono text-xs text-dark">Desi debugging, powered by Gemini.</span>
+      </p>
+    </section>
+
+    <!-- MAIN SPLIT-PANE TOOL CARD -->
+    <div class="bg-cream border-[3px] border-dark rounded-[22px] shadow-brutal-lg overflow-hidden flex flex-col">
+
+      <!-- A. TOP CONTROL BAR -->
+      <div class="bg-white border-b-[3px] border-dark px-5 py-3.5 flex flex-wrap items-center justify-between gap-4">
+        
+        <!-- Roast Level Segmented Control -->
+        <div class="flex items-center gap-2">
+          <span class="font-mono text-xs font-black uppercase text-neutral-600 tracking-wider">TEEKHAPAN:</span>
+          <div class="inline-flex bg-cream p-1 rounded-full border-2 border-dark shadow-brutal-sm">
+            <button class="px-3.5 py-1 rounded-full text-xs font-bold hover:bg-neutral-200 transition-colors">
+              Halka
+            </button>
+            <button class="px-4 py-1 rounded-full text-xs font-black bg-mustard border-2 border-dark shadow-brutal-pressed text-dark flex items-center gap-1">
+              <span>Tikha</span>
+              <span class="text-[10px]">🌶️</span>
+            </button>
+            <button class="px-3.5 py-1 rounded-full text-xs font-bold hover:bg-neutral-200 transition-colors flex items-center gap-1 text-gred">
+              <span>Zanzanit</span>
+              <span class="text-[10px]">🔥</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Middle Controls: Persona & Language & Error -->
+        <div class="flex flex-wrap items-center gap-2.5">
+          <!-- Persona Dropdown -->
+          <div class="relative">
+            <button class="bg-cream hover:bg-amber-100/60 border-2 border-dark rounded-full px-3.5 py-1.5 text-xs font-bold flex items-center gap-2 shadow-brutal-sm">
+              <span class="text-neutral-500 font-mono text-[10px]">PERSONA:</span>
+              <span class="font-black">Stand-up Roaster</span>
+              <svg class="w-3.5 h-3.5 text-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path></svg>
+            </button>
+          </div>
+
+          <!-- Language Dropdown -->
+          <div class="relative">
+            <button class="bg-cream hover:bg-neutral-200 border-2 border-dark rounded-full px-3.5 py-1.5 text-xs font-bold flex items-center gap-2 shadow-brutal-sm">
+              <span class="w-2 h-2 rounded-full bg-gblue"></span>
+              <span class="font-mono">Python · Auto-detect</span>
+              <svg class="w-3.5 h-3.5 text-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path></svg>
+            </button>
+          </div>
+
+          <!-- + ERROR MESSAGE dashed button -->
+          <button class="border-2 border-dashed border-dark/60 hover:border-dark bg-cream/50 hover:bg-white rounded-full px-3 py-1.5 text-xs font-mono font-bold text-neutral-700 transition-colors flex items-center gap-1.5">
+            <span class="text-gred font-bold text-sm">+</span>
+            <span>ERROR MESSAGE</span>
+          </button>
+        </div>
+
+        <!-- Primary CTA Button -->
+        <button class="bg-mustard hover:bg-[#e2a433] text-dark font-black text-sm px-6 py-2.5 rounded-full border-[2.5px] border-dark shadow-brutal hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-brutal-sm active:translate-x-[3px] active:translate-y-[3px] active:shadow-none transition-all flex items-center gap-2 tracking-wide uppercase">
+          <span>Roast Me / <span class="font-devanagari font-black">भाजून काढ</span></span>
+          <span class="text-base">🔥</span>
+          <span class="font-mono text-base font-bold">→</span>
+        </button>
+      </div>
+
+      <!-- MAIN CONTENT SPLIT PANE -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 min-h-[580px] bg-editorDark">
+        
+        <!-- B. LEFT PANE - CODE EDITOR (approx 48%) -->
+        <div class="lg:col-span-6 border-b-[3px] lg:border-b-0 lg:border-r-[3px] border-dark flex flex-col bg-editorDark text-creamText">
+          
+          <!-- Header Row -->
+          <div class="bg-[#1f1f1f] border-b-2 border-dark px-4 py-2.5 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <div class="flex items-center gap-1.5">
+                <span class="w-3 h-3 rounded-full bg-gred border border-black/40 inline-block"></span>
+                <span class="w-3 h-3 rounded-full bg-mustard border border-black/40 inline-block"></span>
+                <span class="w-3 h-3 rounded-full bg-ggreen border border-black/40 inline-block"></span>
+              </div>
+              <span class="ml-2 font-mono text-xs font-bold text-neutral-400">INPUT // SRC</span>
+              <span class="text-neutral-600">/</span>
+              <span class="font-mono text-xs font-bold text-white">YOUR_CODE.py</span>
+            </div>
+
+            <!-- Utility Row Buttons -->
+            <div class="flex items-center gap-2 font-mono text-xs">
+              <button class="bg-[#2d2d2d] hover:bg-[#3d3d3d] text-neutral-300 px-2.5 py-1 rounded border border-neutral-700 hover:text-white transition-colors">
+                [ SAMPLE BUG ]
+              </button>
+              <button class="bg-[#2d2d2d] hover:bg-gred/20 hover:text-gred text-neutral-400 px-2.5 py-1 rounded border border-neutral-700 transition-colors">
+                [ CLEAR ]
+              </button>
+            </div>
+          </div>
+
+          <!-- Code Surface with Gutters -->
+          <div class="flex-1 p-4 font-mono text-sm leading-relaxed overflow-x-auto custom-scroll flex bg-[#171717]">
+            <!-- Line Numbers -->
+            <div class="select-none text-neutral-600 pr-4 text-right flex flex-col font-mono text-xs pt-0.5 border-r border-neutral-800">
+              <span class="leading-6">01</span>
+              <span class="leading-6 text-gred font-bold">02</span>
+              <span class="leading-6">03</span>
+              <span class="leading-6">04</span>
+              <span class="leading-6">05</span>
+              <span class="leading-6">06</span>
+              <span class="leading-6">07</span>
+              <span class="leading-6">08</span>
+            </div>
+
+            <!-- Code Content -->
+            <div class="pl-4 flex-1 whitespace-pre font-mono text-xs md:text-sm">
+              <div class="leading-6"><span class="text-gblue font-bold">def</span> <span class="text-mustard">calculate_grade</span>(marks):</div>
+              <div class="leading-6 bg-gred/15 -mx-4 px-4 border-l-4 border-gred relative group">
+                <span class="text-neutral-500">    </span><span class="text-gblue font-bold">if</span> marks <span class="text-gred font-black underline decoration-wavy decoration-gred bg-gred/30 px-1 rounded">=</span> <span class="text-[#79C0FF]">100</span>:  <span class="text-[#8B949E] italic"># Syntax & comparison bug</span>
+              </div>
+              <div class="leading-6"><span class="text-neutral-500">        </span><span class="text-gblue font-bold">return</span> <span class="text-[#A5D6FF]">"Sharma ji ka beta"</span></div>
+              <div class="leading-6"><span class="text-neutral-500">    </span><span class="text-gblue font-bold">return</span> <span class="text-[#A5D6FF]">"Pass"</span></div>
+              <div class="leading-6 text-neutral-600"></div>
+              <div class="leading-6 text-neutral-600"># Nashik Devs: Always check your comparison operator!</div>
+              <div class="leading-6"><span class="text-gblue">print</span>(calculate_grade(<span class="text-[#79C0FF]">100</span>))</div>
+              <div class="leading-6 text-neutral-600 font-italic">// Waiting for your spicy roast...</div>
+            </div>
+          </div>
+
+          <!-- Code Editor Footer Bar -->
+          <div class="bg-[#1f1f1f] border-t border-neutral-800 px-4 py-2 flex items-center justify-between text-xs font-mono text-neutral-400">
+            <div class="flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-ggreen"></span>
+              <span>Python · Auto-detected</span>
+            </div>
+            <div class="text-neutral-500">
+              <span class="text-mustard font-semibold">1,204</span> / 12,000 chars
+            </div>
+          </div>
+        </div>
+
+        <!-- C. RIGHT PANE - ROAST REPORT & REDEMPTION ARC (approx 52%) -->
+        <div class="lg:col-span-6 flex flex-col bg-cream text-dark">
+          
+          <!-- Header Row -->
+          <div class="bg-[#F0EAE1] border-b-2 border-dark px-5 py-2.5 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <span class="font-mono text-xs font-black uppercase text-neutral-600">AUDIT // REPORT</span>
+              <span class="bg-mustard text-dark text-[10px] font-mono font-bold px-2 py-0.5 rounded-full border border-dark">VERDICT: SAVAGE</span>
+            </div>
+            <div class="flex items-center gap-2 text-xs font-mono font-bold text-neutral-700">
+              <span class="text-gred">●</span> LIVE AUDIT ACTIVE
+            </div>
+          </div>
+
+          <!-- Report Body -->
+          <div class="p-5 md:p-6 flex-1 flex flex-col gap-5 overflow-y-auto">
+            
+            <!-- Savage Headline Banner with Rubber Stamp Roast Score Badge -->
+            <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-4 bg-white border-2 border-dark rounded-xl p-4 shadow-brutal-sm relative overflow-hidden">
+              <div class="flex-1">
+                <span class="text-[10px] font-mono font-black uppercase tracking-wider text-gred bg-gred/10 px-2 py-0.5 rounded border border-gred/30">
+                  CRITICAL ROAST VERDICT
+                </span>
+                <h3 class="text-lg md:text-xl font-black mt-2 leading-tight">
+                  “Yeh code nahi, Panchavati Express ki general boghi hai.”
+                </h3>
+                <p class="text-xs text-neutral-600 font-semibold mt-1">
+                  Crowded, chaotic, aur bina ticket ke crash hone wala logic!
+                </p>
+              </div>
+
+              <!-- Rubber Stamp Roast Score Badge (Tilted -3deg) -->
+              <div class="transform -rotate-3 hover:rotate-0 transition-transform sm:self-center shrink-0">
+                <div class="bg-mustard border-[2.5px] border-dark rounded-xl p-2.5 text-center shadow-brutal-sm min-w-[150px]">
+                  <div class="text-[10px] font-mono font-black uppercase tracking-tighter text-dark/80">ROAST SCORE</div>
+                  <div class="text-3xl font-black font-mono tracking-tight text-dark my-0.5">72<span class="text-base text-dark/70">/100</span></div>
+                  <div class="bg-dark text-cream text-[9px] font-mono font-bold px-2 py-0.5 rounded uppercase leading-tight">
+                    Attendance Short,<br/>Code Bhi Short!
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Issue Card: Line 02 -->
+            <div class="bg-white border-2 border-dark rounded-xl p-4 shadow-brutal-sm flex flex-col gap-2.5">
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                  <span class="bg-dark text-cream font-mono font-black text-xs px-2 py-0.5 rounded">
+                    LINE 02
+                  </span>
+                  <span class="bg-neutral-100 border border-dark text-dark font-mono text-[10px] font-bold px-2 py-0.5 rounded uppercase">
+                    CATEGORY: LOGIC
+                  </span>
+                </div>
+                <span class="bg-gred text-white font-mono text-xs font-black px-2.5 py-0.5 rounded-full border border-dark">
+                  SEVERITY: HIGH
+                </span>
+              </div>
+
+              <!-- Roast dialogue -->
+              <div class="bg-[#FFF8E7] border-l-4 border-mustard p-3 rounded-r text-xs leading-relaxed">
+                <span class="font-bold text-dark font-mono uppercase text-[11px] block text-mustard/90 mb-1">
+                  🗣️ Stand-up Roaster says:
+                </span>
+                <p class="font-semibold text-neutral-800">
+                  "Bhau, condition check karne ke bajaye marks hi assign kar diya? Aise toh engineering mein back pakki hai. Godavari bridge pe baith ke syntax padh le pehle!"
+                </p>
+              </div>
+
+              <!-- Technical Fix hint -->
+              <div class="bg-neutral-100 rounded p-2.5 border border-neutral-300 text-xs flex items-center justify-between">
+                <div>
+                  <span class="text-neutral-500 font-mono text-[11px]">FIX RECOMMENDED: </span>
+                  <span class="font-mono font-bold text-dark">Use <code class="bg-white border border-dark px-1.5 py-0.5 rounded font-black text-ggreen">==</code> instead of <code class="bg-white border border-dark px-1.5 py-0.5 rounded text-gred font-black">=</code> for comparison.</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Redemption Arc Section -->
+            <div class="bg-[#1E1E1E] text-creamText border-2 border-dark rounded-xl p-4 shadow-brutal-sm flex flex-col gap-3">
+              <div class="flex items-center justify-between border-b border-neutral-700 pb-2">
+                <div class="flex items-center gap-2">
+                  <span class="text-ggreen text-sm">✨</span>
+                  <h4 class="font-black text-xs md:text-sm tracking-wide text-white uppercase">
+                    REDEMPTION ARC — <span class="text-mustard font-mono">Ab asli fix dekh, bhau.</span>
+                  </h4>
+                </div>
+                <button class="bg-mustard hover:bg-[#dba134] text-dark font-mono font-bold text-[11px] px-3 py-1 rounded border border-dark flex items-center gap-1 shadow-brutal-sm hover:shadow-none transition-all">
+                  <span>[ COPY CODE ]</span>
+                  <span>→</span>
+                </button>
+              </div>
+
+              <!-- Corrected Snippet -->
+              <div class="bg-[#141414] p-3 rounded font-mono text-xs leading-relaxed overflow-x-auto custom-scroll border border-neutral-800">
+                <div class="text-neutral-500"># Fixed with proper comparison operator</div>
+                <div><span class="text-gblue font-bold">def</span> <span class="text-mustard">calculate_grade</span>(marks):</div>
+                <div class="bg-ggreen/10 -mx-3 px-3 border-l-2 border-ggreen">
+                  <span class="text-neutral-500">    </span><span class="text-gblue font-bold">if</span> marks <span class="text-ggreen font-black bg-ggreen/20 px-1 rounded">==</span> <span class="text-[#79C0FF]">100</span>:  <span class="text-ggreen font-semibold"># Valid comparison ✨</span>
+                </div>
+                <div><span class="text-neutral-500">        </span><span class="text-gblue font-bold">return</span> <span class="text-[#A5D6FF]">"Sharma ji ka beta"</span></div>
+                <div><span class="text-neutral-500">    </span><span class="text-gblue font-bold">return</span> <span class="text-[#A5D6FF]">"Pass"</span></div>
+              </div>
+            </div>
+
+            <!-- Action Bar (Buttons) -->
+            <div class="flex flex-wrap items-center justify-between gap-3 pt-1 border-t border-neutral-300">
+              <div class="flex items-center gap-2">
+                <button class="bg-mustard hover:bg-[#dba134] text-dark font-black text-xs px-4 py-2 rounded-full border-2 border-dark shadow-brutal-sm flex items-center gap-1.5 transition-all">
+                  <span>SHARE ROAST</span>
+                  <span class="font-mono">→</span>
+                </button>
+                <button class="bg-white hover:bg-neutral-100 text-dark font-bold text-xs px-3.5 py-2 rounded-full border-2 border-dark shadow-brutal-sm transition-all">
+                  ROAST AGAIN, SPICIER 🌶️
+                </button>
+              </div>
+              <button class="text-neutral-600 hover:text-dark font-mono text-xs font-bold underline underline-offset-4 decoration-dark">
+                [ NEW CODE ]
+              </button>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- 4. DECORATIVE RANGOLI / WARLI BORDER STRIP -->
+    <div class="py-2 flex items-center justify-center gap-4">
+      <div class="h-0.5 flex-1 bg-dark/20"></div>
+      <div class="bg-white border-2 border-dark px-6 py-2 rounded-full shadow-brutal-sm flex items-center gap-3 font-mono text-xs tracking-widest text-dark select-none">
+        <span class="text-mustard">▲</span>
+        <span>▼</span>
+        <span class="text-gblue">▲</span>
+        <span>▼</span>
+        <span class="text-neutral-400">• • •</span>
+        <span class="font-bold text-[11px] uppercase tracking-normal">NASHIK · WARLI HERITAGE MEETS MODERN BRUTALISM</span>
+        <span class="text-neutral-400">• • •</span>
+        <span class="text-ggreen">▲</span>
+        <span>▼</span>
+        <span class="text-gred">▲</span>
+        <span>▼</span>
+      </div>
+      <div class="h-0.5 flex-1 bg-dark/20"></div>
+    </div>
+
+    <!-- 5. FOOTER WITH AUTHENTIC MARKS -->
+    <footer class="mt-2 text-center flex flex-col items-center gap-4">
+      <div class="flex items-center gap-4 flex-wrap justify-center text-xs font-semibold text-neutral-800">
+        <!-- GDG Nashik -->
+        <div class="flex items-center gap-2 bg-white border-2 border-dark px-3.5 py-1.5 rounded-full shadow-brutal-sm">
+          <img src="assests/GDG_Logo.svg" alt="GDG Logo" class="h-5 w-auto" />
+          <span class="font-mono font-bold text-dark text-xs">Google Developer Groups Nashik</span>
+        </div>
+        
+        <span class="text-neutral-400 font-bold">×</span>
+
+        <!-- Pre-DevFest Nashik 2026 -->
+        <div class="flex items-center gap-2 bg-[#FFF8E7] border-2 border-dark px-3.5 py-1.5 rounded-full shadow-brutal-sm">
+          <img src="assests/Pre-DevFest_Logo.svg" alt="Pre-DevFest Logo" class="h-5 w-auto" />
+        </div>
+      </div>
+
+      <div class="flex items-center gap-2 flex-wrap justify-center text-xs font-medium text-neutral-700">
+        <span>Built with</span>
+        <span class="text-gred text-sm">❤️</span>
+        <span>for DevFest Nashik 2026 by Google Developer Groups Nashik</span>
+      </div>
+
+      <div class="flex items-center gap-3 text-[11px] font-mono text-neutral-500 flex-wrap justify-center">
+        <span>Pre-DevFest '26 Nashik Edition</span>
+        <span>•</span>
+        <span>Gemini AI Reasoning Engine</span>
+        <span>•</span>
+        <span>Panchavati Express Debugger Protocol</span>
+      </div>
+    </footer>
+  </main>
+
+</body>
+</html>

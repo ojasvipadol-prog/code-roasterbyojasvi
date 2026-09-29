@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --cream: #F8F4EC;
+    --dark: #141414;
+    --mustard: #EDB13E;
+    --gblue: #4C80F0;
+    --gred: #D9503F;
+    --ggreen: #4FA35A;
+    --editor-dark: #171717;
+  }
+
+  body {
+    background-color: var(--cream);
+    color: var(--dark);
+    background-image: radial-gradient(#141414 0.75px, transparent 0.75px);
+    background-size: 24px 24px;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  }
+}
+
+/* Custom scrollbar styling */
+.custom-scroll::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+.custom-scroll::-webkit-scrollbar-track {
+  background: #1e1e1e;
+}
+.custom-scroll::-webkit-scrollbar-thumb {
+  background: #3e3e3e;
+  border-radius: 3px;
+}
+
+/* Neo-brutalist utility shadows */
+.shadow-brutal-sm {
+  box-shadow: 2px 2px 0px #141414;
+}
+.shadow-brutal {
+  box-shadow: 4px 4px 0px #141414;
+}
+.shadow-brutal-lg {
+  box-shadow: 6px 6px 0px #141414;
+}
+.shadow-brutal-pressed {
+  box-shadow: 1px 1px 0px #141414;
+}
